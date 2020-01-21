@@ -15,7 +15,15 @@ public class QueryProcessor {
             String[] argsLeft = queryStr.split("what is ");
             String[] argsRight = argsLeft[1].split(" plus ");
             return Integer.toString(Integer.parseInt(argsRight[0]) + Integer.parseInt(argsRight[1]));
-        } else if (queryStr.contains("which of the following numbers is the largest")) {
+        }
+        else if (queryStr.contains("what is") && queryStr.contains("multiplied")) {
+            // what%20is%200%20plus%2011
+            String[] argsLeft = queryStr.split("what is ");
+            String[] argsRight = argsLeft[1].split(" multiplied by ");
+            return Integer.toString(Integer.parseInt(argsRight[0]) * Integer.parseInt(argsRight[1]));
+        }
+
+        else if (queryStr.contains("which of the following numbers is the largest")) {
             String[] argsLeft = queryStr.split("which of the following numbers is the largest: ");
             String[] argsRight = argsLeft[1].split(", ");
 
@@ -26,7 +34,7 @@ public class QueryProcessor {
                 maxInt = Math.max(maxInt, thisVal);
 
             }
-            
+
             return Integer.toString(maxInt);
         }
         return "";
