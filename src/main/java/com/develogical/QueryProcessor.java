@@ -18,7 +18,16 @@ public class QueryProcessor {
         } else if (queryStr.contains("which of the following numbers is the largest")) {
             String[] argsLeft = queryStr.split("which of the following numbers is the largest: ");
             String[] argsRight = argsLeft[1].split(", ");
-            return Integer.toString(Math.max(Integer.parseInt(argsRight[0]), Integer.parseInt(argsRight[1])));
+
+            int maxInt = Integer.MIN_VALUE;
+            for (String arg: argsRight) {
+
+                Integer thisVal = Integer.parseInt(arg);
+                maxInt = Math.max(maxInt, thisVal);
+
+            }
+            
+            return Integer.toString(maxInt);
         }
         return "";
     }
