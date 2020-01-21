@@ -15,6 +15,10 @@ public class QueryProcessor {
             String[] argsLeft = queryStr.split("what is ");
             String[] argsRight = argsLeft[1].split(" plus ");
             return Integer.toString(Integer.parseInt(argsRight[0]) + Integer.parseInt(argsRight[1]));
+        } else if (queryStr.contains("which of the following numbers is the largest")) {
+            String[] argsLeft = queryStr.split("which of the following numbers is the largest: ");
+            String[] argsRight = argsLeft[1].split(", ");
+            return Integer.toString(Math.max(Integer.parseInt(argsRight[0]), Integer.parseInt(argsRight[1])));
         }
         return "";
     }
