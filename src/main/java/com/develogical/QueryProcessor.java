@@ -60,6 +60,18 @@ public class QueryProcessor {
             return "";
         }
 
+
+        // what%20is%20the%2016th%20number%20in%20the%20Fibonacci%20sequence
+        else if (queryStr.contains("Fibonacci sequence")) {
+            String[] argsLeft = queryStr.split("what is the ");
+            String[] argsRight = argsLeft[1].split("th number in the Fibonacci sequence");
+
+            Integer n = Integer.parseInt(argsRight[0]);
+
+            return Integer.toString(fib(n));
+
+        }
+
         // which%20city%20is%20the%20Eiffel%20tower%20in
         else if (queryStr.contains("which city is the eiffel tower in")) {
             return "paris";
@@ -103,6 +115,13 @@ public class QueryProcessor {
                 return false;
         }
         return true;
+    }
+
+    static int fib(int n)
+    {
+        if (n <= 1)
+            return n;
+        return fib(n - 1) + fib(n - 2);
     }
 }
 
