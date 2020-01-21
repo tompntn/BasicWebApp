@@ -60,6 +60,48 @@ public class QueryProcessor {
             return "";
         }
 
+        else if (queryStr.contains("which of the following numbers are primes")) {
+            String[] argsLeft = queryStr.split("which of the following numbers are primes: ");
+            String[] argsRight = argsLeft[1].split(", ");
+
+
+            String result = "";
+            for (String arg: argsRight) {
+
+                Integer thisVal = Integer.parseInt(arg);
+
+                if (isPrime(thisVal)) {
+                    if (!result.equals("")) {
+                        result += "," + arg;
+                    } else {
+                        result += arg;
+                    }
+                }
+
+            }
+
+            return result;
+        }
+
         return "";
     }
+
+    public static boolean isPrime(int num) {
+
+        boolean flag = false;
+        for(int i = 2; i <= num/2; ++i)
+        {
+            // condition for nonprime number
+            if(num % i == 0)
+            {
+                flag = true;
+                break;
+            }
+        }
+
+        return flag;
+
+    }
 }
+
+
