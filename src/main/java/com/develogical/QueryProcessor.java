@@ -16,6 +16,12 @@ public class QueryProcessor {
             String[] argsRight = argsLeft[1].split(" plus ");
             return Integer.toString(Integer.parseInt(argsRight[0]) + Integer.parseInt(argsRight[1]));
         }
+        else if (queryStr.contains("what is") && queryStr.contains("minus")) {
+            // what%20is%200%20plus%2011
+            String[] argsLeft = queryStr.split("what is ");
+            String[] argsRight = argsLeft[1].split(" minus ");
+            return Integer.toString(Integer.parseInt(argsRight[0]) - Integer.parseInt(argsRight[1]));
+        }
         else if (queryStr.contains("what is") && queryStr.contains("multiplied")) {
             // what%20is%200%20plus%2011
             String[] argsLeft = queryStr.split("what is ");
