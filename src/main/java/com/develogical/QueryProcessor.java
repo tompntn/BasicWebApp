@@ -37,6 +37,29 @@ public class QueryProcessor {
 
             return Integer.toString(maxInt);
         }
+
+        else if (queryStr.contains("which of the following numbers is both square and cube")) {
+            String[] argsLeft = queryStr.split("which of the following numbers is both square and cube: ");
+            String[] argsRight = argsLeft[1].split(", ");
+
+            for (String arg: argsRight) {
+
+                Integer thisVal = Integer.parseInt(arg);
+
+                boolean isSquare = ((thisVal - Math.floor(thisVal)) == 0);
+
+                double cubeRoot = Math.pow(thisVal,1.0/3.0);
+                boolean isCube = Math.round(cubeRoot) == cubeRoot;
+
+                if (isSquare && isCube) {
+                    return arg;
+                }
+
+            }
+
+            return "";
+        }
+
         return "";
     }
 }
