@@ -60,6 +60,12 @@ public class QueryProcessor {
             return "";
         }
 
+        // which%20city%20is%20the%20Eiffel%20tower%20in
+        else if (queryStr.contains("which city is the eiffel tower in")) {
+            return "paris";
+        }
+
+
         else if (queryStr.contains("which of the following numbers are primes")) {
             String[] argsLeft = queryStr.split("which of the following numbers are primes: ");
             String[] argsRight = argsLeft[1].split(", ");
