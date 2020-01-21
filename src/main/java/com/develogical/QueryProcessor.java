@@ -65,6 +65,11 @@ public class QueryProcessor {
             return "paris";
         }
 
+        // who%20played%20James%20Bond%20in%20the%20film%20Dr%20No
+        else if (queryStr.contains("who played James Bond in the film Dr No")) {
+            return "Sean Connery";
+        }
+
 
         else if (queryStr.contains("which of the following numbers are primes")) {
             String[] argsLeft = queryStr.split("which of the following numbers are primes: ");
